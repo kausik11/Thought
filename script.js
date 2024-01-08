@@ -8,6 +8,7 @@ form.addEventListener("submit",(e)=>{
     let name = e.target.UName.value;
     let phone = e.target.UPhone.value;
     let email = e.target.UEmail.value;
+    let thought = e.target.Uthought.value;
     let CheckStatus = 0;
 
     const userData =JSON.parse(localStorage.getItem("userDetails")) ?? [];
@@ -26,7 +27,8 @@ form.addEventListener("submit",(e)=>{
     userData.push({
         'first': name,
         'secound': phone,
-        'third':email
+        'third':email,
+        'fourth': thought
     })
     localStorage.setItem("userDetails", JSON.stringify(userData));
     //   console.log(userData)
@@ -60,6 +62,7 @@ const displayData = ()=>{
         <div>${element.third}</div>
         <h5>Phone</h5>
         <div>${element.secound}</div>
+        <div><b>${element.fourth}</b></div>
     </div>`
 
     main.innerHTML = finalData;
